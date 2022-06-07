@@ -4,7 +4,7 @@ import { StyleSheet, SafeAreaView } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { BottomNavigation, Text } from 'react-native-paper';
 
-import ComptePage from '../screens/ComptePage';
+import UserComponent from '../components/UserComponent';
 import VirementsPage from '../screens/VirementsPage';
 import CartesPage from '../screens/CartesPage'
 import ContactPage from '../screens/ContactPage'
@@ -12,7 +12,7 @@ import PlusPage from '../screens/PlusPage'
 
 const Stack = createNativeStackNavigator()
 
-const CompteRoute = () => <ComptePage />;
+const CompteRoute = () => <UserComponent />;
 
 const VirementsRoute = () => <VirementsPage />;
 
