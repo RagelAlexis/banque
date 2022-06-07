@@ -7,13 +7,9 @@ const customData = require('../datas/data.json')
 
 const UserPage = () => {
   return (
-    <ScrollView>
-      {customData.map((item, index) => {
-        return (
-          <UserComponent item={item} key={index} />
-        )
-      })}
-    </ScrollView>
+    <View>
+          <UserComponent/>
+    </View>
   )
 }
 
