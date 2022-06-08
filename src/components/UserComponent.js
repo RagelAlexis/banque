@@ -8,7 +8,7 @@ const selectUser = (id) => {
 }
 
 const UserComponent = () => {
-    
+
     const [id, setId] = useState(Data[0]._id)
     const [user, setUser] = useState(Data[0].user)
     const [incomes, setIncomes] = useState(Data[0].incomes)

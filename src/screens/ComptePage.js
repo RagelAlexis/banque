@@ -6,13 +6,13 @@ const customData = require('../datas/data.json')
 
 const ComptePage = () => {
   return (
-    <ScrollView>
-      {customData.map((item, index) => {
+    <View>
+
         return (
           <CardComponent item={item} key={index} />
         )
-      })}
-    </ScrollView>
+      )
+    </View>
   )
 }
 

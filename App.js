@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyleSheet } from 'react-native'
-import { SafeAreaView  } from 'react-native-safe-area-context';
+import { SafeAreaView } from 'react-native-web';
 import HomeNavigation from './src/navigations/HomeNavigation'
 
 const App = () => {
