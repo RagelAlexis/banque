@@ -47,7 +47,7 @@ const UserComponent = () => {
                 <Text style={styles.text}>Revenu : {totalIncome}€</Text>
                 <Text style={styles.text}>Dépense : {totalExpenses}€</Text>
                 <Text style={styles.text}>Solde du compte : {total}€</Text>
-                <Text style={styles.text}>Détails Revenu : {incomes.map(item => item.amount.substring(1).replace(',', 'br'))}</Text>
+                <Text style={styles.text}>Détails Revenu : {incomes.map(item => item.amount.substring(1).replace(',', ''))}</Text>
                 <Text style={styles.text}>Détails Dépense : {expenses.map(item => item.amount.substring(1).replace(',', ''))}</Text>
             </View>
         </View>

@@ -6,8 +6,6 @@ import { BottomNavigation, Text } from 'react-native-paper';
 
 import UserComponent from '../components/UserComponent';
 import VirementsPage from '../screens/VirementsPage';
-import CartesPage from '../screens/CartesPage'
-import ContactPage from '../screens/ContactPage'
 import PlusPage from '../screens/PlusPage'
 
 const Stack = createNativeStackNavigator()
@@ -15,10 +13,6 @@ const Stack = createNativeStackNavigator()
 const CompteRoute = () => <UserComponent />;
 
 const VirementsRoute = () => <VirementsPage />;
-
-const CartesRoute = () => <CartesPage />;
-
-const ContactRoute = () => <ContactPage />;
 
 const PlusRoute = () => <PlusPage />;;
 
@@ -29,16 +23,12 @@ const RouteNavigation = () => {
     const [routes] = React.useState([
       { key: 'comptes', title: 'Comptes', icon: 'currency-eur' },
       { key: 'virements', title: 'Virements', icon: 'swap-horizontal' },
-      { key: 'cartes', title: 'Cartes', icon: 'credit-card' },
-      { key: 'contact', title: 'Contact', icon: 'account' },
       { key: 'plus', title: 'Plus', icon: 'menu' },
     ]);
   
     const renderScene = BottomNavigation.SceneMap({
         comptes: CompteRoute,
         virements: VirementsRoute,
-        cartes: CartesRoute,
-        contact: ContactRoute,
         plus: PlusRoute,
     });
 
