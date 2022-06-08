@@ -3,14 +3,11 @@ import React from 'react'
 import Data from '../datas/data.json'
 import { Picker } from '@react-native-picker/picker'
 
-/* Select _id */
-const selectId = (id) => {
+const selectUser = (id) => {
     return Data.find(item => item._id === id)
 }
 
-
-/* target first id from data.json and show name user */
-const HomeScreen = () => {
+const UserComponent = () => {
     const [id, setId] = React.useState(Data[0]._id)
     const [user, setUser] = React.useState(Data[0].user)
     const [incomes, setIncomes] = React.useState(Data[0].incomes)
@@ -21,39 +18,34 @@ const HomeScreen = () => {
     const [comments, setComments] = React.useState(Data[0].comments)
     const [_id_income, set_id_income] = React.useState(Data[0]._id_income)
 
-    /* calculate total incomes with the amount  */
+  
     const totalIncome = incomes.map(item => item.amount.replace('€', '').replace(',', '')).reduce((acc, item) => parseFloat(acc) + parseFloat(item), 0).toFixed(2)
-
-    /* calculate total expenses with the amount  */
     const totalExpenses = expenses.map(item => item.amount.replace('€', '').replace(',', '')).reduce((acc, item) => parseFloat(acc) + parseFloat(item), 0).toFixed(2)
-
-    /* calculate total balance with the amount  */
     const totalBalance = (parseFloat(totalIncome) - parseFloat(totalExpenses)).toFixed(2)
 
     return (
-        /* select id with picker */
         <View style={styles.container}>
             <Picker
                 selectedValue={id}
                 style={{ height: 50, width: 200 }}
                 onValueChange={(itemValue, itemIndex) => {
                     setId(itemValue)
-                    setUser(selectId(itemValue).user)
-                    setIncomes(selectId(itemValue).incomes)
-                    setExpenses(selectId(itemValue).expenses)
-                    setDate(selectId(itemValue).date)
-                    setAmount(selectId(itemValue).amount)
-                    setCategory(selectId(itemValue).category)
-                    setComments(selectId(itemValue).comments)
-                    set_id_income(selectId(itemValue)._id_income)
+                    setUser(selectUser(itemValue).user)
+                    setIncomes(selectUser(itemValue).incomes)
+                    setExpenses(selectUser(itemValue).expenses)
+                    setDate(selectUser(itemValue).date)
+                    setAmount(selectUser(itemValue).amount)
+                    setCategory(selectUser(itemValue).category)
+                    setComments(selectUser(itemValue).comments)
+                    set_id_income(selectUser(itemValue)._id_income)
                 }}>
                 {Data.map(item => <Picker.Item label={item.user} value={item._id} key={item._id} />)}
             </Picker>
             <View style={styles.container}>
                 <Text style={styles.text}>{user}</Text>
-                <Text style={styles.text}>{totalIncome}</Text>
-                <Text style={styles.text}>{totalExpenses}</Text>
-                <Text style={styles.text}>{totalBalance}</Text>
+                <Text style={styles.text}>Revenus : {totalIncome}</Text>
+                <Text style={styles.text}>Dépenses : {totalExpenses}</Text>
+                <Text style={styles.text}>Total : {totalBalance}</Text>
             </View>
         </View>
     )
@@ -61,7 +53,7 @@ const HomeScreen = () => {
 
 
 
-export default HomeScreen
+export default UserComponent
 
 const styles = StyleSheet.create({
     text: {
@@ -71,6 +63,5 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
-        justifyContent: 'center',
     },
 })
