@@ -1,13 +1,12 @@
 import React from 'react'
-import { StyleSheet } from 'react-native'
-import { SafeAreaProvider  } from 'react-native-safe-area-context';
+import { StyleSheet, SafeAreaView } from 'react-native'
 import HomeNavigation from './src/navigations/HomeNavigation'
 
 const App = () => {
   return (
-    <SafeAreaProvider style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <HomeNavigation />
-    </SafeAreaProvider>
+    </SafeAreaView>
   )
 }
 
